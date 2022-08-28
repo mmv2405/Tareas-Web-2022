@@ -1,0 +1,84 @@
+@use "sass:math";
+
+//Variables
+$grid-columns:12;
+$breakpoints:(
+    "sm": 480px,
+    "m": 720px,
+    "lg": 960px,
+);
+$base-padding: 0.75 rem;
+$base-margin: 0.75 rem;
+
+$base-border-thickness:1px;
+$base-border-radius:20px; 
+$base-box-shadow:2px;
+
+//Layouts
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.row{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+
+//mixins
+@mixin sm {
+    @media(min-width: map-get($breakpoints,"sm")){
+        @content;
+    }   
+}
+
+@mixin m {
+    @media(min-width: map-get($breakpoints,"sm")){
+        @content;
+    }   
+}
+
+@mixin lg {
+    @media(min-width: map-get($breakpoints,"sm")){
+        @content;
+    }   
+}
+
+//Col classes
+@include sm{
+    //Cycles
+   @for $i from 1 through $grid-columns{
+    .col-#{i}-sm{
+        box-sizing: border-box;
+        flex-grow: 0;
+        width: math.div($i*100%, $grid-columns);
+    }
+   }
+}
+
+@include m{
+    //Cycles
+   @for $i from 1 through $grid-columns{
+    .col-#{i}-m{
+        box-sizing: border-box;
+        flex-grow: 0;
+        width: math.div($i*100%, $grid-columns);
+    }
+   }
+}
+
+@include lg{
+    //Cycles
+   @for $i from 1 through $grid-columns{
+    .col-#{i}-lg{
+        box-sizing: border-box;
+        flex-grow: 0;
+        width: math.div($i*100%, $grid-columns);
+    }
+   }
+}
