@@ -1,0 +1,22 @@
+{
+  "name": "tarea2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "Tarea 2 grid news",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "handlebars": "^4.7.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

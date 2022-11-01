@@ -1,0 +1,73 @@
+
+<div class="topnav">
+
+        <form action="/" method="GET" class="form">
+            <input type="text" placeholder="BUSCA NOTICIAS..." type="search" name="search" id="search" class="search">
+            <button type="submit" class="btn">
+            </button>
+        </form>
+  
+    </div>
+
+    <div class="row">
+        {{#each articles}}
+        
+        <div class="col-12-sm col-6-md col-3-lg">
+            <div class="card m-2">
+                <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                </div>
+                <img class="card-image" src="{{urlToImage}}" alt="Card image cap">
+                <button data-open-modal="{{@index}}">Ver más</button>
+                        
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+
+{{#each articles}}
+
+    <div class="modal closed" id="Modal_{{@index}}">
+        <div class="modal-content">
+            <span id="spm" class="close" >&times;</span>
+            <h2>{{title}}</h2>
+            <img src="{{urlToImage}}" alt="">
+            <p>{{content}}</p>
+            <a href="{{url}}" target="_blank">Go to article</a>
+        </div>
+    </div>
+
+{{/each}}
+
+
+<script>
+    const openModalButtons = document.querySelectorAll('[data-open-modal]');
+    const modals = document.querySelectorAll('.modal');
+
+   
+    openModalButtons.forEach(openModalButton => {
+        openModalButton.addEventListener('click', (event) => {
+            const openIndex = Number(event.target.dataset.openModal); 
+            modals.forEach((modal, index) => {
+                modal.classList.toggle('open', index === openIndex);
+                modal.classList.toggle('closed', index !== openIndex);
+            });
+        });
+    });
+    const span = document.querySelectorAll('.close');
+    span.forEach((spanArr, index) => { 
+    spanArr.addEventListener('click', () => {
+    modals[index].style.display = "none";
+  });
+});
+
+</script
+
+
+
+
+
+
+   

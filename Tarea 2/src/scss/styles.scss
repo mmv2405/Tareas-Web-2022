@@ -1,0 +1,155 @@
+@import "variables";
+@import "utilities";
+@import "breakpoints";
+@import "grid";
+@import "functions";
+
+
+@include sm {
+    .banner img {
+        max-height: 300px;
+        max-width: 700px;
+    }
+}
+
+@include md {
+    .banner img {
+        max-height: 30%;
+        min-width: 90%
+    }
+}
+
+@include lg {
+    .banner img {
+        max-height: 375px;
+        min-width: 800px;
+    }
+}
+    
+
+.topnav {
+    background-color: $button-color;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: #000000;
+    text-align: center;
+    font-family: Arial;
+    font-size: 16px;
+  }
+
+  .topnav a:first-child {
+    margin-left: 0;
+  }
+  
+  .topnav a:hover {
+    background-color: darker($button-color, $value);
+    
+  }
+ 
+  .topnav a.active {
+    background-color: dark-comp($button-color);
+    color: white;
+  }
+  
+
+  .topnav .icon {
+    display: none;
+  }
+
+  @include sm {
+    .topnav a:not(:first-child){
+        display: none;
+    }
+
+    .topnav a.icon{
+        float: right;
+        display: flex;
+    }
+  }
+
+  @include md {
+    .topnav a:not(:first-child) {
+        display: block;
+        
+    }
+
+    .topnav a {
+        padding-left: 5px;
+        margin-left: 3px;
+        margin-right: 2px;
+    }
+
+    .topnav a.icon {
+        display: none;
+    }
+  }
+
+
+.card {
+    display: inline-block;
+    padding: $base-padding;
+    border: $base-border-thickness solid #ddd;
+    box-shadow: $base-box-shadow;
+    height: max-content;
+    margin: .5 auto;
+    border-radius: $border-radius;
+    background-color: rgb(77, 67, 179);
+
+    
+    .card-title {
+        font-size: large;
+        padding-bottom: 2px;
+        font-weight: bold;
+    }
+
+    .card-body {
+        font-size: $base-font-size;
+        font-family: Arial, Helvetica, sans-serif;
+        min-height: 200px;
+        max-height: max-content;
+
+    }
+
+
+    .card-image {
+        margin: auto;
+        max-width: 30%;
+        max-height: 40%;
+        text-align: center;
+        display: block;
+    }
+    
+}
+
+.card:hover {
+    background-color: rgb(18, 111, 111);
+}
+
+
+.button-basic {
+    border: none;
+    background-color: $button-color;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 3px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    
+        
+    
+}
+
+.button-special {
+    @extend .button-basic;
+    &:hover {
+        background-color: dark-comp($button-color);
+
+    }
+    
+}
+
